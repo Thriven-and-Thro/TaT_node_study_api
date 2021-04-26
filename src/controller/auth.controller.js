@@ -6,8 +6,8 @@ class AuthController {
     const { id, name } = ctx.user
     // 颁发签名
     const token = jwt.sign({ id, name }, PRIVATE_KEY, {
-      expiresIn: 60 * 60 * 24,
-      algorithm: 'RS256'
+      expiresIn: 60 * 60 * 24, // 过期时间
+      algorithm: 'RS256' // 加密方式
     })
 
     ctx.body = {

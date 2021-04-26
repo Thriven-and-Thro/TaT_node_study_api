@@ -17,6 +17,7 @@ class FileController {
 
   async savePictureInfo(ctx, next) {
     const files = ctx.req.files
+    console.log(ctx.req);
     const userId = ctx.user.id
     const { momentId } = ctx.query
 

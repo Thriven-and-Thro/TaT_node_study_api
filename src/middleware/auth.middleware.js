@@ -25,8 +25,7 @@ const verifyLogin = async (ctx, next) => {
   }
 
   // 判断密码是否和数据库一致（加密后）
-  // if (md5password(password) !== user.password) {
-  if (password != user.password) {
+  if (md5password(password) !== user.password) {
     const error = new Error(errorTypes.PASSWORD_IS_INCORRENT)
     return ctx.app.emit('error', error, ctx)
   }
@@ -34,7 +33,7 @@ const verifyLogin = async (ctx, next) => {
   await next()
 }
 
-// 颜值token
+// 验证token
 const verifyAuth = async (ctx, next) => {
   console.log("验证授权的middleware");
   // 获取token

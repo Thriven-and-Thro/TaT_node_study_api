@@ -4,7 +4,6 @@ const connections = require('../app/database')
 class UserService {
   // 创建新用户
   async create(user) {
-    console.log('111');
     const { name, password } = user
     const statement = `INSERT INTO users (name,password) VALUES (?,?);`
     const result = await connections.execute(statement, [name, password])
